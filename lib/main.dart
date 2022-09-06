@@ -1,10 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:newappp/screens/screen-one.dart';
-import 'package:newappp/screens/screen-two.dart';
 
 void main() {
-  runApp(MaterialApp(home: MyApp()));
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -24,42 +22,69 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  bool flutterCourse = false;
+  bool reactCourse = false;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(),
+        body: Container(
+            child: Column(
           children: [
-            ElevatedButton(
-                onPressed: () {
+            Text(
+              "Please selecet you Course!",
+              style: TextStyle(
+                  fontSize: 30,
+                  color: Colors.purple,
+                  fontWeight: FontWeight.bold),
+            ),
+            Divider(height: 35),
+            
+            CheckboxListTile(
+                secondary: Icon(
+                  Icons.book,
+                  color: Colors.amber,
+                ),
+                subtitle: Text("based on dart programming",
+                    style: TextStyle(fontStyle: FontStyle.italic,fontSize: 20,color: Colors.green[700])),
+                title: Text(
+                  "Flutter",
+                  style: TextStyle(
+                      fontSize: 25,
+                      color: Colors.blue,
+                      fontWeight: FontWeight.bold),
+                ),
+                value: flutterCourse,
+                onChanged: ((val) {
                   setState(() {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: ((context) {
-                      return Screen_one();
-                    })));
+                    flutterCourse = val!;
                   });
-                },
-                child: Text(
-                  "Go to the screen # 1",
-                  style: TextStyle(fontSize: 30),
-                )),
-            ElevatedButton(
-                onPressed: () {
+                })),
+            CheckboxListTile(
+                secondary: Icon(
+                  Icons.book,
+                  color: Colors.amber,
+                ),
+                subtitle: Text(
+                  "based on dart programming",
+                  style: TextStyle(fontSize: 20, fontStyle: FontStyle.italic,color: Colors.green[700]),
+                ),
+                title: Text(
+                  "React",
+                  style: TextStyle(
+                      fontSize: 25,
+                      color: Colors.blue,
+                      fontWeight: FontWeight.bold),
+                ),
+                value: reactCourse,
+                onChanged: ((val) {
                   setState(() {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: ((context) {
-                      return Screen_two();
-                    })));
+                    reactCourse = val!;
                   });
-                },
-                child: Text(
-                  "Go to the screen # 2",
-                  style: TextStyle(fontSize: 30),
-                )),
+                })),
           ],
-        ),
+        )),
       ),
     );
   }
