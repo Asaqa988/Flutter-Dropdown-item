@@ -40,14 +40,16 @@ class _HomeState extends State<Home> {
                   fontWeight: FontWeight.bold),
             ),
             Divider(height: 35),
-            
             CheckboxListTile(
                 secondary: Icon(
                   Icons.book,
                   color: Colors.amber,
                 ),
                 subtitle: Text("based on dart programming",
-                    style: TextStyle(fontStyle: FontStyle.italic,fontSize: 20,color: Colors.green[700])),
+                    style: TextStyle(
+                        fontStyle: FontStyle.italic,
+                        fontSize: 20,
+                        color: Colors.green[700])),
                 title: Text(
                   "Flutter",
                   style: TextStyle(
@@ -68,10 +70,13 @@ class _HomeState extends State<Home> {
                 ),
                 subtitle: Text(
                   "based on dart programming",
-                  style: TextStyle(fontSize: 20, fontStyle: FontStyle.italic,color: Colors.green[700]),
+                  style: TextStyle(
+                      fontSize: 20,
+                      fontStyle: FontStyle.italic,
+                      color: Colors.green[700]),
                 ),
                 title: Text(
-                  "React",
+                  "React ",
                   style: TextStyle(
                       fontSize: 25,
                       color: Colors.blue,
